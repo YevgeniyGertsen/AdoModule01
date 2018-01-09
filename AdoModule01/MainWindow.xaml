@@ -7,6 +7,52 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <TabControl>
+            <TabItem Header="Test Connection">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Button Grid.Row="0" Width="100" x:Name="ConnectToServerButton" 
+                            Margin="30, 0, 0, 0"
+                            Click="ConnectToServerButton_Click">
+                        Connect To Server
+                    </Button>
+
+                    <TextBlock Grid.Row="1" x:Name="ConnectMessage"  
+                           Margin="30, 0, 0, 0"
+                           Width="Auto"
+                               TextWrapping="Wrap"></TextBlock>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Equipment">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Button Grid.Row="0" Width="100" x:Name="GetServerDataButton" 
+                            Margin="30, 0, 0, 0"
+                            Click="GetServerDataButton_Click">
+                        Get Data From Server
+                    </Button>
+
+                    <ListView Grid.Row="1" x:Name="ListViewEquipment">
+                        <ListView.View>
+                            <GridView>
+                                <GridView.Columns>
+                                    <GridViewColumn Header="Equipment Id"
+                                                    DisplayMemberBinding="{Binding Path=EquipmentId}"></GridViewColumn>
+                                    <GridViewColumn Header="Garage Room" DisplayMemberBinding="{Binding Path=GarageRoom}"></GridViewColumn>
+                                </GridView.Columns>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
